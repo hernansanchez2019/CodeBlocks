@@ -3,31 +3,52 @@
 #include <string.h>
 #include <ctype.h>
 
-int main()
-{
-   char nombre[15];
-   char apellido[15];
-   char apellidonombre[50]=""; // ""para inicializarlo
 
-   printf("INGRESE SU NOMBRE :");
+int main()
+
+
+{
+
+    char nombre[15];
+    char apellido[15];
+    char apellidonombre[15]= "";
+    int i;
+    int LEN;
+
+    system( "color 0B" );
+
+
+    printf("INGRESE NOMBRE : ");
     fflush(stdin);
     gets(nombre);
 
-   printf("\nINGRESE SU APELLIDO : ");
-   fflush(stdin);
+    printf("INGRESE APELLIDO :");
+    fflush(stdin);
     gets(apellido);
 
-    strcat(apellidonombre, apellido);
-    strcat(apellidonombre, ", ");
-    strcat(apellidonombre, nombre);
-    printf("%s", apellidonombre );
+    strcat (apellidonombre,apellido); //concatenar, unir el apelliedo luego el nombre
+    strcat (apellidonombre,", ");
+    strcat (apellidonombre, nombre);
 
+    strlwr(apellidonombre); // cambiamos la letra a mayuscula
+    apellidonombre[0]= toupper(apellidonombre[0]);
+    LEN=strlen(apellidonombre);
 
+    for (i=0;i<LEN;i++)
+    {
+        if( isspace(apellidonombre[i]))
+        {
+            apellidonombre[i+1] =toupper(apellidonombre[i+1]);
+        }
 
+    }
+    system( "color 0B" );
 
+    puts(apellidonombre);
 
     return 0;
 }
+
 
     /*chat auxString[1000]; para poner los caracteres q quieras
     while ( strlen(auxString>14){
@@ -61,7 +82,7 @@ int main()
 
     printf("%s", palabra);  // mostras por pantalla.
 
-    /*strcmp(palabra,otrapalabra);
+    strcmp(palabra,otrapalabra);
 
     comp=stricmp(palabra,otrapalabra);
     printf("\nCOMPARA : %d", comp);  //COMPARAR*/

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #define T 3
 #define LEN 20
 
@@ -15,25 +16,26 @@ int main()
     for(i=0; i<T; i++)
     {
         printf("INGRESE LEGAJO : ");
-        scanf("%d", legajo[i]);
+        scanf("%d", &legajo[i]);  //aca mira legajo por legajo dentro del for &
 
 
-        printf("\nINGRESE NOMBRE : ");
-        fflush(stdin);
+        printf("INGRESE NOMBRE : ");
+        fflush(stdin);  //solo en char
         gets(nombre[i]);
 
     }
 
 
-    for(i=0; i<T-1; i++)
+    for(i=0; i<T; i++) // ordenar metodo de burbujeo
     {
         for(j=i+1; j<T-1; j++)
         {
             if(legajo[i]>legajo[j])
-            {
                 auxint= legajo[i];
                 legajo[i]= legajo[j];
                 legajo[j]= auxint;
+
+
                 strcpy(auxstring,nombre[i]);
                 strcpy(nombre[i], nombre[j]);
                 strcpy(nombre[j], auxstring);
@@ -41,15 +43,19 @@ int main()
 
         }
 
-    }
+
 
      for(i=0; i<T; i++)
     {
 
 
-        printf("%d\t%s", legajo,nombre);
+        printf("\n%d\t%s", legajo[i],nombre[i]);
     }
 
 
     return 0;
+
+
+
+
 }
