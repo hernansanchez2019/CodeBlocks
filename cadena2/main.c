@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,11 +27,12 @@ int main()
     }
 
 
-    for(i=0; i<T; i++) // ordenar metodo de burbujeo
+    for(i=0; i<T-1; i++) // ordenar metodo de burbujeo,
     {
-        for(j=i+1; j<T-1; j++)
+        for(j=i+1; j<T; j++)
         {
             if(legajo[i]>legajo[j])
+            {
                 auxint= legajo[i];
                 legajo[i]= legajo[j];
                 legajo[j]= auxint;
@@ -40,8 +42,9 @@ int main()
                 strcpy(nombre[i], nombre[j]);
                 strcpy(nombre[j], auxstring);
             }
-
         }
+
+    }
 
 
 
